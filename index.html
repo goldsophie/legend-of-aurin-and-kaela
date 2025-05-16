@@ -19,28 +19,53 @@
       line-height: 1.8;
       overflow-y: auto; /* Scrollen aktivieren */
     }
-  
     .intro {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: url('https://cdn.pixabay.com/photo/2016/11/29/10/07/mountains-1867271_1280.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-  
-    .intro-text {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 2rem;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 1.8rem;
-      max-width: 80%;
-    }
+  background: radial-gradient(ellipse at center, #000 0%, #111 100%);
+  overflow: hidden;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-animation {
+  text-align: center;
+  color: #fefefe;
+  opacity: 0;
+}
+
+.intro-title {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px #aa99ff;
+  margin-bottom: 1.5rem;
+}
+
+.intro-subtitle {
+  font-size: 1.5rem;
+  opacity: 0;
+  margin-bottom: 2rem;
+}
+
+.intro .nav-button {
+  font-size: 1.2rem;
+  border: 2px solid white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  background: transparent;
+  transition: all 0.3s;
+}
+
+.intro .nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
   
     .chapter-wrapper {
       position: relative;
@@ -161,10 +186,10 @@
   </audio>
 
   <div class="intro" id="intro">
-    <div class="intro-text">
-      <h2>🌌 Die Legende von Aurin & Kaela</h2>
-      <p>Eine Geschichte über Mut, Magie und das Licht in der Dunkelheit.<br>Klicke, um die Reise zu beginnen.</p>
-      <button class="nav-button" onclick="startStory()">⨀</button>
+    <div class="intro-animation">
+      <h1 class="intro-title">✨ Die Legende von Aurin & Kaela ✨</h1>
+      <p class="intro-subtitle">Eine Geschichte über Mut, Magie und das Licht in der Dunkelheit.</p>
+      <button class="nav-button" onclick="startStory()">🌌 Beginne die Reise</button>
     </div>
   </div>
 
@@ -368,6 +393,32 @@
     function openPortal() {
       window.location.href = "weinabend.html";
     }
+
+    window.addEventListener('DOMContentLoaded', () => {
+  gsap.to(".intro-animation", { duration: 1.5, opacity: 1, delay: 0.5, ease: "power2.out" });
+  gsap.from(".intro-title", {
+    duration: 1.5,
+    opacity: 0,
+    y: -50,
+    ease: "back.out(1.7)",
+    delay: 0.7
+  });
+  gsap.from(".intro-subtitle", {
+    duration: 1.5,
+    opacity: 0,
+    y: 30,
+    ease: "power2.out",
+    delay: 1.2
+  });
+  gsap.from(".intro .nav-button", {
+    duration: 1,
+    opacity: 0,
+    scale: 0.8,
+    delay: 1.8,
+    ease: "elastic.out(1, 0.75)"
+  });
+});
+
   </script>
 </body>
 </html>
