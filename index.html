@@ -43,16 +43,34 @@
       width: 100vw;
       height: 100vh;
       display: none;
+      background: #111;
       background-size: cover;
       background-position: center;
     }
     .chapter-container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 3rem 2rem;
       background-color: rgba(0, 0, 0, 0.6);
       min-height: 100vh;
       overflow-y: auto;
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+    }
+    .chapter-text {
+      flex: 1;
+    }
+    .chapter-image {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chapter-image img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
     }
     h1, h2 {
       text-align: center;
@@ -79,6 +97,7 @@
     }
     @media (max-width: 600px) {
       .chapter-container {
+        flex-direction: column;
         padding: 1rem;
       }
       .nav-button {
@@ -88,6 +107,26 @@
       p {
         font-size: 1.1rem;
       }
+    }
+    #portal {
+      width: 220px;
+      margin: 3rem auto;
+      text-align: center;
+      cursor: pointer;
+      animation: pulse 3s infinite;
+    }
+    .glow {
+      width: 100%;
+      transition: transform 0.5s ease-in-out;
+      filter: drop-shadow(0 0 5px #ccc);
+    }
+    .glow:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 25px #a2e);
+    }
+    @keyframes pulse {
+      0%, 100% { filter: drop-shadow(0 0 5px #fff); }
+      50% { filter: drop-shadow(0 0 20px #a2e); }
     }
   </style>
 </head>
@@ -116,6 +155,9 @@
         <p>Doch alles ändert sich, als er zum ersten Mal die Feuerhalle betritt – eine Taverne aus Licht, Musik und brodelndem Leben. Dort steht sie. Die Kriegerin mit flammendem Haar, einer Stimme aus Stahl und einer Seele wie ein Gewitter.</p>
         <p>Ihre Blicke treffen sich – ein Stoß zweier Welten. „Ich wollte ihn im Bett, keine Geschichte.“ – dachte Kaela. Doch das Schicksal hatte andere Pläne.</p>    
       </div>
+      <div class="chapter-image">
+        <img src="img/Kapiteleinsneu.png" alt="Kapitel 1">
+      </div>
     </div>
     <div class="chapter-wrapper" style="background-image: url('https://cdn.pixabay.com/photo/2018/01/15/07/51/dance-3086490_1280.jpg');">
       <div class="chapter-container">
@@ -124,6 +166,9 @@
         <p>Im Schein der Kristallleuchter tanzen Händler, Krieger und Gelehrte. Aurin und Kaela wechseln Worte, die tiefer schneiden als jedes Schwert. In den Tagen danach – Brief um Brief, Lichtzeichen über magische Portale – beginnt ein Band zu wachsen.</p>
         <p>Sie treffen sich. Essen. Trinken. Reden. Und dann – das erste gemeinsame Erwachen. Noch kein Schwur, aber ein Versprechen aus Blicken.</p>
         <p>An diesem Wochenende verschmilzt Zeit. Sie finden keine Ruhe – und wollen keine.</p>
+      </div>
+      <div class="chapter-image">
+        <img src="img/Kapitelzwei.png" alt="Kapitel 2">
       </div>
     </div>
     
@@ -135,6 +180,9 @@
         <p>„Ich liebe dich.“</p>
         <p>Inmitten von Feuer und Lärm zerfließt ihre Welt – und wird neu geboren.</p>
       </div>
+      <div class="chapter-image">
+        <img src="img/Kapiteldrei.png" alt="Kapitel 3">
+      </div>
     </div>
     
   
@@ -145,13 +193,19 @@
         <p>Drei Räume. Ein Bad. Und ein endloser Himmel über ihnen. Hier wachsen sie zusammen. Streiten. Lachen. Küssen sich durch Gewitter und Morgenröte.</p>
         <p>Was einst ein Unterschlupf war, wird ein Zuhause.</p>
       </div>
+      <div class="chapter-image">
+        <img src="img/Kapitelvier.png" alt="Kapitel 4">
+      </div>
     </div>
     <div class="chapter-wrapper" style="background-image: url('https://cdn.pixabay.com/photo/2017/07/27/21/25/corn-2542627_1280.jpg');">
       <div class="chapter-container">
         <h2>🜑 Kapitel V – Der Mais und der Magier</h2>
-        <p>Im Jahre 2016 reisen sie ins Reich der Gaukler und Träume – Eu'Ropa Parka.</p>
+        <p>Im Jahre 2016 reisen sie ins Reich der Gaukler und Träume – Eu'R Parka.</p>
         <p>Kaela fällt müde in sich zusammen, erschöpft vom Kampf gegen Schwindel und Menschenmassen. Aurin, sanft und schweigend, zaubert heimlich den Mais aus ihrem Salat – weil er weiß, dass sie ihn nicht mag.</p>
         <p>Kein Held in Rüstung. Aber in diesem Moment: der größte Magier aller Zeiten.</p>
+      </div>
+      <div class="chapter-image">
+        <img src="img/Kapitelfuenf.png" alt="Kapitel 5">
       </div>
     </div>
     <div class="chapter-wrapper" style="background-image: url('https://cdn.pixabay.com/photo/2022/03/08/09/52/wolf-7053634_1280.jpg');">
@@ -161,6 +215,9 @@
         <p>Sie nehmen ihn auf, und von da an sind sie drei. Nächte am See. Wanderungen durch Wälder. Kämpfe gegen Stöcke und Gänse.</p>
         <p>Cayo – der Wächter ihrer kleinen Welt.</p>
       </div>
+      <div class="chapter-image">
+        <img src="img/Kapitelsechs.png" alt="Kapitel 6">
+      </div>
     </div>
     <div class="chapter-wrapper" style="background-image: url('https://cdn.pixabay.com/photo/2020/03/04/16/34/dark-4902397_1280.jpg');">
       <div class="chapter-container">
@@ -168,6 +225,9 @@
         <p>Ein dunkler Nebel senkt sich. Der Alchemist wird krank. Die Krankheit der Splitterseele (MS) nagt an ihm, an seinem Körper, an seinem Mut.</p>
         <p>Doch Kaela weicht nicht. Sie kämpft nicht für ihn – sie kämpft mit ihm. Gegen Schatten, gegen Stille, gegen den Zorn der Götter.</p>
         <p>Manche Prüfungen kann man nicht besiegen. Aber man kann sie gemeinsam tragen – und dabei schöner werden.</p>
+      </div>
+      <div class="chapter-image">
+        <img src="img/Kapitelsieben.png" alt="Kapitel 7">
       </div>
     </div>
     <div class="chapter-wrapper" style="background-image: url('https://cdn.pixabay.com/photo/2019/08/02/01/27/night-4379390_1280.jpg');">
@@ -179,6 +239,9 @@
         <p>„Ich weiß nicht, wie ich’s geschafft habe. Nur, dass er da war.“</p>
         <p>Als die Nacht vergeht, erhebt sich Kaela neu – verwundet, aber ungebrochen. Stärker. Weicher. Wahrer als je zuvor.</p>
       </div>
+      <div class="chapter-image">
+        <img src="img/Kapitelacht.png" alt="Kapitel 8">
+      </div>
     </div>
     <div class="chapter-wrapper" style="background-image: url('https://cdn.pixabay.com/photo/2016/11/29/12/54/hands-1868552_1280.jpg');">
       <div class="chapter-container">
@@ -189,6 +252,9 @@
         <p>Zusammen – keine Krone. Kein Thron. Nur ein Blick, der sagt: „Ich sehe dich. Immer.“</p>
         <p>Liebe ist kein Ort. Sie ist ein Schwur – täglich neu gesprochen. In Elixieren, Gesten, durch Wut und durch Glanz.</p>
       </div>
+      <div class="chapter-image">
+        <img src="img/Kapitelneun.png" alt="Kapitel 9">
+      </div>
     </div>
     <div class="chapter-wrapper" style="background-image: url('https://cdn.pixabay.com/photo/2020/03/07/20/51/mountain-4910502_1280.jpg');">
       <div class="chapter-container">
@@ -198,6 +264,9 @@
         <p>Wenn Aurin die Schatten seiner Seele in Licht verwandelt hat. Wenn Kaela wieder frei kämpft.</p>
         <p>„Wir werden dort ankommen. Nicht weil es leicht ist. Sondern weil wir es verdienen.“</p>
       </div>
+      <div class="chapter-image">
+        <img src="img/Kapitelzehn.png" alt="Kapitel 10">
+      </div>
     </div>
     <div class="chapter-wrapper" style="background-image: url('https://cdn.pixabay.com/photo/2021/07/05/17/24/wine-6389036_1280.jpg');">
       <div class="chapter-container">
@@ -205,9 +274,15 @@
         <p>Am sechsten Sonnenmond des Jahres – 06.06. – öffnet sich ein Portal.</p>
         <p>Ein Mini-Weinritual erwartet sie, begleitet von magischen Kristallen und einem finalen Duell in der Arena von For'Tra-Nyta.</p>
         <p>✨ „Sei bereit. Dein Geschenk erwartet dich.“</p>
-        <button class="nav-button" onclick="alert('✨ Das Portal öffnet sich bald...')">🎁</button>
+        <div id="portal" onclick="openPortal()">
+          <img src="img/portal.png" alt="Magisches Portal" class="glow">
+        </div>
+      </div>
+      <div class="chapter-image">
+        <img src="img/Kapitelelf.png" alt="Kapitel 11">
       </div>
     </div>
+    
     
   </div>
 
@@ -237,6 +312,12 @@
         document.getElementById('nextBtn').style.display = 'none';
       }
     });
+
+    function openPortal() {
+  // Zielseite oder Animation
+  window.location.href = "weinabend.html";
+}
+
   </script>
 </body>
 </html>

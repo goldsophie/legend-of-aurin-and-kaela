@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wine & Win Night</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(to bottom, #2c0e37, #12001a);
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100vh;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-top: 2rem;
+    }
+    p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 1rem;
+    }
+    .countdown {
+      font-size: 2rem;
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.1);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+    }
+    .surprise {
+      margin-top: 3rem;
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      border: 2px dashed #fff;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.05);
+      cursor: pointer;
+    }
+    .surprise:hover {
+      background: rgba(255,255,255,0.15);
+    }
+  </style>
+</head>
+<body>
+  <h1>🍷 Wine & Win Night</h1>
+  <p>Am 06.06. erwartet dich ein ganz besonderer Abend.<br>
+  Wir genießen gemeinsam ein Weintasting mit Geschichten, Lachen und Liebe – und danach: ein episches Fortnite-Duell.<br>
+  Der Einsatz? Eine Massage vom Verlierer. 😏</p>
+
+  <div class="countdown">
+    Countdown bis zum Tasting:<br>
+    <span id="timer"></span>
+  </div>
+
+  <div class="surprise" onclick="revealVbucks()">
+    ✨ Klick hier für deine V-Bucks Überraschung ✨
+  </div>
+
+  <script>
+    // Countdown
+    const targetDate = new Date("2025-06-06T20:00:00").getTime();
+
+    const timer = document.getElementById("timer");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+
+    // V-Bucks Überraschung
+    function revealVbucks() {
+      alert("💸 Du bekommst 1.000 V-Bucks – eingelöst am 06.06. nach dem Weinsieg!");
+    }
+  </script>
+</body>
+</html>
