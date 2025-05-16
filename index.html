@@ -133,6 +133,25 @@
       background: rgba(255, 255, 255, 0.1);
     }
   
+    .intro-button {
+  font-size: 1.2rem;
+  border: 2px solid white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 2rem;
+  z-index: 10000;
+}
+
+.intro-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+
     @media (max-width: 600px) {
       .chapter-container {
         flex-direction: column;
@@ -189,8 +208,8 @@
     <div class="intro-animation">
       <h1 class="intro-title">✨ Die Legende von Aurin & Kaela ✨</h1>
       <p class="intro-subtitle">Eine Geschichte über Mut, Magie und das Licht in der Dunkelheit.</p>
-      <button class="nav-button" onclick="startStory()">🌌 Beginne die Reise</button>
-    </div>
+<button class="intro-button" onclick="startStory()">🌌 Beginne die Reise</button>
+  </div>
   </div>
 
   <div id="chapters">
@@ -410,13 +429,14 @@
     ease: "power2.out",
     delay: 1.2
   });
-  gsap.from(".intro .nav-button", {
-    duration: 1,
-    opacity: 0,
-    scale: 0.8,
-    delay: 1.8,
-    ease: "elastic.out(1, 0.75)"
-  });
+  gsap.from(".intro-button", {
+  duration: 1,
+  opacity: 0,
+  scale: 0.8,
+  delay: 1.8,
+  ease: "elastic.out(1, 0.75)"
+});
+
 });
 
   </script>
