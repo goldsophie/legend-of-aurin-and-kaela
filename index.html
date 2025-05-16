@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Die Legende von Aurin & Kaela</title>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'IM Fell English SC', serif;
+      background: #000;
+      color: #f5f5f5;
+      line-height: 1.8;
+      overflow: hidden;
+    }
+    .intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://cdn.pixabay.com/photo/2016/11/29/10/07/mountains-1867271_1280.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .intro-text {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.5rem;
+      max-width: 80%;
+    }
+    .chapter-wrapper {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      background-size: cover;
+      background-position: center;
+    }
+    .chapter-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      overflow-y: auto;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    p {
+      font-size: 1.3rem;
+    }
+    .nav-button {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: none;
+      border: 2px solid white;
+      color: white;
+      font-size: 1.5rem;
+      padding: 0.75rem 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 10;
+    }
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    @media (max-width: 600px) {
+      .chapter-container {
+        padding: 1rem;
+      }
+      .nav-button {
+        font-size: 1.2rem;
+        padding: 0.5rem 0.75rem;
+      }
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/13/audio_2c0b73e14c.mp3" type="audio/mpeg">
+    Dein Browser unterstützt keine Audiowiedergabe.
+  </audio>
+
+  <div class="intro" id="intro">
+    <div class="intro-text">
+      <h2>🌌 Die Legende von Aurin & Kaela</h2>
+      <p>Eine Geschichte über Mut, Magie und das Licht in der Dunkelheit.<br>
+      Klicke, um die Reise zu beginnen.</p>
+      <button class="nav-button" onclick="startStory()">⨀</button>
+    </div>
+  </div>
+
+  <div id="chapters">
+    <div class="chapter-wrapper" style="background-image: url('https://cdnb.artstation.com/p/assets/images/images/049/728/912/large/rafael-sam-innfinal2.jpg');">
+      <div class="chapter-container">
+        <h2>🜁 Kapitel I – Die Rückkehr</h2>
+        <p>Im Jahr des wandernden Sterns ...</p>
+      </div>
+    </div>
+    <div class="chapter-wrapper" style="background-image: url('https://cdna.artstation.com/p/assets/images/images/049/741/216/large/rafael-sam-crownhollow.jpg');">
+      <div class="chapter-container">
+        <h2>⚰️ Kapitel VIII – Die Nacht ohne Sterne</h2>
+        <p>Ein Ruf aus dem Jenseits erreicht Kaela ...</p>
+      </div>
+    </div>
+    <div class="chapter-wrapper" style="background-image: url('https://cdna.artstation.com/p/assets/images/images/018/960/167/large/toni-justamante-jungfrau.jpg');">
+      <div class="chapter-container">
+        <h2>🏔️ Kapitel X – Der Ruf der Berge</h2>
+        <p>Hoch oben in den weißen Ländern ...</p>
+      </div>
+    </div>
+    <div class="chapter-wrapper" style="background-image: url('https://cdna.artstation.com/p/assets/images/images/058/194/213/large/taran-follows-winefeast.jpg');">
+      <div class="chapter-container">
+        <h2>🍷 Kapitel XI – Das Fest der Verbundenen</h2>
+        <p>Am sechsten Sonnenmond des Jahres – 06.06. – öffnet sich ein Portal ...</p>
+        <button class="nav-button" onclick="alert('✨ Das Portal öffnet sich bald...')">🎁</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="nav-button" id="nextBtn">➡</button>
+
+  <script>
+    const chapters = document.querySelectorAll('.chapter-wrapper');
+    let current = 0;
+
+    function showChapter(index) {
+      chapters.forEach((c, i) => c.style.display = 'none');
+      const chapter = chapters[index];
+      chapter.style.display = 'block';
+      gsap.fromTo(chapter, {opacity: 0}, {opacity: 1, duration: 1});
+    }
+
+    function startStory() {
+      document.getElementById('intro').style.display = 'none';
+      showChapter(current);
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (current < chapters.length - 1) {
+        current++;
+        showChapter(current);
+      } else {
+        document.getElementById('nextBtn').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
